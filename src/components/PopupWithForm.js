@@ -1,8 +1,8 @@
-function PopupWithForm({ name, title, children, isOpen }) {
+function PopupWithForm({ name, title, children, isOpen, onClose }) {
 	return (
 		<div className={`popup popup_${name} ${isOpen ? 'popup_opened' : ''}`}>
 			<div className="popup__body">
-				<button type="button" className="popup__close-popup"></button>
+				<button type="button" className="popup__close-popup" onClick={onClose}></button>
 				<h2 className="popup__title">{title}</h2>
 				<form className="form" name={name} novalidate>
 					{children}

@@ -10,6 +10,14 @@ function App() {
 	const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 	const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
+	function closeAllPopups() {
+		{
+			setIsEditProfilePopupOpen(false)
+			setIsAddPlacePopupOpen(false)
+			setIsEditAvatarPopupOpen(false)
+		}
+	};
+
 	function handleEditProfileClick() {
 		setIsEditProfilePopupOpen(true)
 	};
@@ -28,7 +36,7 @@ function App() {
 			<div className="page">
 				<Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} />
 				<Footer />
-				<PopupWithForm name='profil' title='Редактировать профиль' isOpen={isEditProfilePopupOpen}>
+				<PopupWithForm name='profil' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
 					<label className="popup__label">
 						<input type="text" name="name" placeholder="Имя" id="name-input" className="popup__field" minlength="2"
 							maxlength="40" required />
@@ -41,7 +49,7 @@ function App() {
 					</label>
 				</PopupWithForm>
 
-				<PopupWithForm name='add-image' title='Новое место' isOpen={isAddPlacePopupOpen}>
+				<PopupWithForm name='add-image' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={false}>
 					<label className="popup__label">
 						<input type="text" name="name" placeholder="Название" id="place-input"
 							className="popup__field popup__name-card" minlength="2" maxlength="30" required />
@@ -55,11 +63,11 @@ function App() {
 				</PopupWithForm>
 
 
-				<PopupWithForm name='image-view' title='Редактировать профиль' isOpen={isEditAvatarPopupOpen}>
+				<PopupWithForm name='image-view' title='Редактировать профиль' isOpen={isEditAvatarPopupOpen} onClose={false}>
 					<input type="hidden" name="_id" className="popup__field" />
 				</PopupWithForm>
 
-				<PopupWithForm name='profil' title={'Alex'} isOpen={false}>
+				<PopupWithForm name='profil' title={'Alex'} isOpen={false} onClose={false}>
 					<label className="popup__label">
 						<input type="url" name="avatar" placeholder="Ссылка" id="avatar-input" className="popup__field" required />
 						<span className="popup__input-error avatar-input-error"></span>
