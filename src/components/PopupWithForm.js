@@ -4,7 +4,7 @@ function PopupWithForm({ name, title, children, isOpen, onClose }) {
 			<div className="popup__body">
 				<button type="button" className="popup__close-popup" onClick={onClose}></button>
 				<h2 className="popup__title">{title}</h2>
-				<form className="form" name={name} novalidate>
+				<form className="form" name={name} noValidate>
 					{children}
 					<button type="submit" className="popup__button-save">Сохранить</button>
 				</form>

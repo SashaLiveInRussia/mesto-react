@@ -1,12 +1,13 @@
-function ImagePopup() {
+function ImagePopup({ card, onClose }) {
 	return (
-		<div className="popup popup_image-view">
+		<div className={`popup popup_image-view ${card ? 'popup_opened' : ''}`}>
 			<div className="popup__image-container">
-				<img className="popup__image"
-					src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg" alt="Image" />
-				<h2 className="popup__image-title">Alex</h2>
-				<button type="button" className="popup__close-popup"></button>
+				<img className="popup__image" src={card?.link} alt="Image" />
+				<h2 className="popup__image-title">{card?.name}</h2>
+				<button type="button" className="popup__close-popup" onClick={onClose}></button>
 			</div>
 		</div>
 	)
 }
+
+export default ImagePopup
