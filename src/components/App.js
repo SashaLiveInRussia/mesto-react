@@ -48,13 +48,13 @@ function App() {
 
 				<PopupWithForm name='profil' title='Редактировать профиль' isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
 					<label className="popup__label">
-						<input type="text" name="name" placeholder="Имя" id="name-input" className="popup__field" minlength="2"
-							maxlength="40" required />
+						<input type="text" name="name" placeholder="Имя" id="name-input" className="popup__field" minLength="2"
+							maxLength="40" required />
 						<span className="popup__input-error name-input-error"></span>
 					</label>
 					<label className="popup__label">
 						<input type="text" name="about" placeholder="Профессия" id="profession-input" className="popup__field"
-							minlength="2" maxlength="200" required />
+							minLength="2" maxLength="200" required />
 						<span className="popup__input-error profession-input-error"></span>
 					</label>
 				</PopupWithForm>
@@ -62,7 +62,7 @@ function App() {
 				<PopupWithForm name='add-image' title='Новое место' isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
 					<label className="popup__label">
 						<input type="text" name="name" placeholder="Название" id="place-input"
-							className="popup__field popup__name-card" minlength="2" maxlength="30" required />
+							className="popup__field popup__name-card" minLength="2" maxLength="30" required />
 						<span className="popup__input-error place-input-error"></span>
 					</label>
 					<label className="popup__label">
