@@ -29,7 +29,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 				<div className="profile__info">
 					<div className="profile__edit-avatar" onClick={onEditAvatar}>
 						<img className="profile__pencil" src={pencil} alt="" />
-						<img className="profile__avatar" src={userAvatar} style={{ backgroundImage: `url(${userAvatar})` }} alt="Аватар" />
+						<img className="profile__avatar" src={userAvatar ?? ''}  alt="Аватар" />
 					</div>
 					<div>
 						<div className="profile__name-and-edit">
