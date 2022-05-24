@@ -4,9 +4,9 @@ import pencil from '../images/edit-avatar.svg'
 import Card from './Card';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
-	const [userName, setUserName] = useState(false);
-	const [userDescription, setUserDescription] = useState(false);
-	const [userAvatar, setUserAvatar] = useState(false);
+	const [userName, setUserName] = useState('');
+	const [userDescription, setUserDescription] = useState('');
+	const [userAvatar, setUserAvatar] = useState('');
 	const [cards, setCards] = useState([]);
 
 	useEffect(() => {
@@ -15,12 +15,14 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 				setUserName(userData.name);
 				setUserDescription(userData.about);
 				setUserAvatar(userData.avatar);
-			});
+			})
+			.catch(console.error);
 
 		api.getInitialCards()
 			.then((data) => {
 				setCards(data);
-			});
+			})
+			.catch(console.error);
 	}, []);
 
 	return (
@@ -28,7 +30,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 			<section className="profile">
 				<div className="profile__info">
 					<div className="profile__edit-avatar" onClick={onEditAvatar}>
-						<img className="profile__pencil" src={pencil} alt="" />
+						<img className="profile__pencil" src={pencil} alt="Изменить" />
 						<img className="profile__avatar" src={userAvatar ?? ''}  alt="Аватар" />
 					</div>
 					<div>

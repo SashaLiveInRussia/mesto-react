@@ -8,7 +8,7 @@ function Card({ card, onCardClick }) {
     return (
         <div className="element">
             <div className="element__delete"></div>
-            <img className="element__img" src={card.link} alt="Карачево" onClick={handleClick} />
+            <img className="element__img" src={card.link} alt={card.name} onClick={handleClick} />
             <div className="element__info">
                 <h2 className="element__title">{card.name}</h2>
                 <div className="element__likes">
