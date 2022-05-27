@@ -8,9 +8,14 @@
   top: 20px;
   right: 20px;
   z-index: 2;
+  visibility: hidden;
 }
 
 .element__delete:hover {
   transition: 0.3s ease;
   opacity: 0.5;
+}
+
+.element__delete_visible {
+	visibility: visible;
 }

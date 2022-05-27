@@ -48,6 +48,14 @@ export class Api {
 			.then(this._checkResponse);
 	}
 
+	changeLikeCardStatus(_id, isAdd) {
+		if (isAdd) {
+			return this.addLike(_id);
+		} else {
+			return this.deleteLike(_id);
+		}
+	}
+
 	addLike(_id) {
 		return fetch(this._baseUrl + '/cards/' + _id + '/likes', {
 			method: 'PUT',
