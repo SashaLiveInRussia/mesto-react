@@ -119,21 +119,22 @@ function App() {
 						onEditAvatar={handleEditAvatarClick}
 					/>
 					<Footer />
+
+					<EditProfilePopup onUpdateUser={handleUpdateUser} isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
+					<EditAvatarPopup onUpdateAvatar={handleUpdateAvatar} isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
+					<AddPlacePopup onCardAdd={handleAddPlaceSubmit} isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+					<PopupWithForm name='_id' title='Вы уверены?' onClose={closeAllPopups}>
+						<input type="hidden" name="_id" className="popup__field" />
+						<button type="submit" className="popup__button-save popup__button-yes">Да</button>
+					</PopupWithForm>
+					<PopupWithForm name='profil' title='Alex' isOpen={false} onClose={closeAllPopups}>
+						<label className="popup__label">
+							<input type="url" name="avatar" placeholder="Ссылка" id="avatar-input" className="popup__field" required />
+							<span className="popup__input-error avatar-input-error"></span>
+						</label>
+					</PopupWithForm>
+					<ImagePopup card={selectedCard} onClose={closeAllPopups} />
 				</div>
-				<EditProfilePopup onUpdateUser={handleUpdateUser} isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
-				<EditAvatarPopup onUpdateAvatar={handleUpdateAvatar} isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
-				<AddPlacePopup onCardAdd={handleAddPlaceSubmit} isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
-				<PopupWithForm name='_id' title='Вы уверены?' onClose={closeAllPopups}>
-					<input type="hidden" name="_id" className="popup__field" />
-					<button type="submit" className="popup__button-save popup__button-yes">Да</button>
-				</PopupWithForm>
-				<PopupWithForm name='profil' title={'Alex'} isOpen={false} onClose={closeAllPopups}>
-					<label className="popup__label">
-						<input type="url" name="avatar" placeholder="Ссылка" id="avatar-input" className="popup__field" required />
-						<span className="popup__input-error avatar-input-error"></span>
-					</label>
-				</PopupWithForm>
-				<ImagePopup card={selectedCard} onClose={closeAllPopups} />
 			</div>
 
 		</CurrentUserContext.Provider>
