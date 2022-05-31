@@ -1,14 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import api from '../utils/api';
 import pencil from '../images/edit-avatar.svg'
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onCardLike, onCardDelete }) {
-	const [userName, setUserName] = useState('');
-	const [userDescription, setUserDescription] = useState('');
-	const [userAvatar, setUserAvatar] = useState('');
-
 	const currentUser = useContext(CurrentUserContext);
 
 	return (
